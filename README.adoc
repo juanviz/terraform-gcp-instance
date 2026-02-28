@@ -12,7 +12,7 @@ This project is licensed under the MIT License - see the [MIT License](https://o
 
 ## GCP Deployment
 
-This repository provides an automated deployment of a Docker Compose environment hosting a sample PHP application for ICAI Sporting Items on a MySQL database. The deployment is managed using Terraform, which provisions a virtual machine instance on Google Cloud Platform (GCP) and installs Docker and Docker Compose via an initialization script.
+This repository provides an automated deployment of a Docker Compose environment hosting a sample PHP application for ICAI Sporting Items on a MySQL database. The deployment is managed using OpenTofu, which provisions a virtual machine instance on Google Cloud Platform (GCP) and installs Docker and Docker Compose via an initialization script.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Before running the deployment, ensure you have the following:
 
 1. [Download the GCP project credentials](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating_service_account_keys) and save the resulting JSON file as `../gcp-identity.json` (one directory above this repository).
 2. In each example directory, set the variables `gcp-username` and `gcp-project` with the appropriate values.
-3. Install Terraform on your local machine.
+3. Install OpenTofu on your local machine.
 4. Ensure you have appropriate IAM permissions to create instances in GCP.
 
 ## Deployment Instructions
@@ -28,8 +28,9 @@ Before running the deployment, ensure you have the following:
 To deploy the infrastructure, navigate to the repository directory and run the following commands:
 
 ```bash
-terraform init
-terraform apply
+tofu init
+tofu plan
+tofu apply
 ```
 
 After a short period, the assigned IP addresses of the provisioned virtual machines will be displayed.
